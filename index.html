@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirecting…</title>
+  <meta http-equiv="refresh" content="3; url=web/fallback.html">
+  <script>
+    (function () {
+      try {
+        var ua = navigator.userAgent || navigator.vendor || window.opera || '';
+        var isAndroid = /Android/i.test(ua);
+        var isIOS = /iPhone|iPad|iPod/i.test(ua);
+        var isIPadOS = /Macintosh/i.test(ua) && (navigator.maxTouchPoints || 0) > 1;
+        if (isIPadOS) { isIOS = true; }
+
+        var androidUrl = 'https://play.google.com/store/apps/details?id=com.trustbank.mobil';
+        var iosUrl = 'https://apps.apple.com/us/app/%D9%85%D8%B5%D8%B1%D9%81-%D8%A7%D9%84%D8%AB%D9%82%D8%A9-%D8%A7%D9%84%D8%AF%D9%88%D9%84%D9%8A-%D8%A7%D9%84%D8%A7%D8%B3%D9%84%D8%A7%D9%85%D9%8A/id1500171493?l=ar';
+
+        if (isAndroid) { window.location.replace(androidUrl); return; }
+        if (isIOS) { window.location.replace(iosUrl); return; }
+        // Else allow meta refresh to fallback after ~3s
+      } catch (e) {
+        // Allow meta refresh fallback
+      }
+    })();
+  </script>
+  <style>
+    html, body { height: 100%; margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+    .wrap { min-height: 100%; display: grid; place-items: center; text-align: center; padding: 24px; }
+    .muted { color: #666; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div>
+      <h1>Redirecting…</h1>
+      <p class="muted">If you are not redirected automatically, <a href="web/fallback.html">click here</a>.</p>
+    </div>
+  </div>
+</body>
+</html>
+
+
